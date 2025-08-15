@@ -1,9 +1,3 @@
-Com certeza\! Deixar um `README.md` mais didático é fundamental para uma aula. A ideia é transformar uma sequência de comandos em uma narrativa de aprendizado.
-
-Aqui está uma versão reestruturada e comentada, explicando o "porquê" de cada passo.
-
------
-
 # Laboratório 03: Carregando Dados no HDFS para o Hive
 
 Olá\! Neste laboratório, nosso objetivo é preparar o ambiente para que o Apache Hive possa consultar nossos dados. O processo envolve três grandes etapas:
