@@ -34,6 +34,20 @@ docker-compose up -d
   * **O que faz?** Este comando lê o arquivo `docker-compose.yml` e inicia todos os serviços definidos nele (como o NameNode e DataNode do HDFS, o Metastore e o Server do Hive, etc.). A opção `-d` (de *detached*) faz com que tudo rode em segundo plano, liberando seu terminal.
   * **Por que fazemos isso?** Este é o passo que efetivamente cria nosso ambiente de Big Data. Ao final dele, teremos um "mini-cluster" Hadoop rodando em nossa máquina, pronto para receber dados.
 
+Após esse passo você conseguirá acessar as seguintes aplicações:
+
+| Porta     | Serviço / Componente                          | Uso principal                                |
+| --------- | --------------------------------------------- | -------------------------------------------- |
+| **10000** | HiveServer2                                   | Conexão JDBC/ODBC do Hive                    |
+| **10002** | Possível Web UI do HiveServer2 ou Beeline web | Monitorar queries Hive (depende do setup)    |
+| **19888** | **MapReduce JobHistory Server**               | Histórico de jobs finalizados do MapReduce   |
+| **8042**  | NodeManager UI (YARN)                         | Métricas e logs por nó do cluster            |
+| **8088**  | **YARN ResourceManager UI**                   | Status de jobs em execução e fila do cluster |
+| **9083**  | Hive Metastore Service                        | Metastore do Hive                            |
+| **9820**  | Pode ser HBase Master UI                      | Admin HBase                                  |
+| **9870**  | HDFS NameNode UI                              | Estado e navegação no HDFS                   |
+
+
 -----
 
 ### Passo 2: Transferir os Dados para o Ambiente
@@ -119,6 +133,14 @@ Agora, repita esse processo para os outros arquivos de dados do laboratório:
 
 
 Lembre-se de criar uma pasta específica no HDFS para cada um deles\! Bom trabalho\!
+
+## Ajustar permissões da pasta no HDFS
+Isso garante que qualquer usuário possa criar e entrar nessas pastas (igual ao /tmp em sistemas Linux).
+
+```bash
+hdfs dfs -chmod -R 1777 /tmp
+hdfs dfs -chmod -R 1777 /tmp/hadoop-yarn/staging
+```
 
 ## Extra
 
