@@ -119,3 +119,10 @@ Agora, repita esse processo para os outros arquivos de dados do laboratório:
 
 
 Lembre-se de criar uma pasta específica no HDFS para cada um deles\! Bom trabalho\!
+
+## Extra
+
+Arquivos maiores de 128MB
+> https://drive.google.com/drive/folders/1q_1dj1mWqQX4m9surb46Ku-YdLtiKHuM?usp=drive_link
+ou
+> https://www.kaggle.com/datasets/irkaal/foodcom-recipes-and-reviews/data

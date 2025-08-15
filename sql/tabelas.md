@@ -236,5 +236,44 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 ```
 
 ---
+### **1️⃣2️⃣ Recipes**
 
+```sql
 
+CREATE EXTERNAL TABLE IF NOT EXISTS recipes (
+    RecipeId DOUBLE,
+    Name STRING,
+    AuthorId DOUBLE,
+    AuthorName STRING,
+    CookTime STRING,
+    PrepTime STRING,
+    TotalTime STRING,
+    DatePublished BIGINT, -- Alterado de TIMESTAMP para BIGINT
+    Description STRING,
+    Images ARRAY<STRING>
+)
+STORED AS PARQUET
+LOCATION '/user/hive/warehouse/recipes';
+```
+
+---
+
+### **1️⃣3️⃣ Reviews**
+
+```sql
+
+CREATE EXTERNAL TABLE IF NOT EXISTS reviews (
+    ReviewId INT,
+    RecipeId INT,
+    AuthorId INT,
+    AuthorName STRING,
+    Rating INT,
+    Review STRING,
+    DateSubmitted BIGINT, 
+    DateModified BIGINT  
+)
+STORED AS PARQUET 
+LOCATION '/user/hive/warehouse/reviews';
+```
+
+---
